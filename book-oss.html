@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book oss — musikk til bryllup, dåp og arrangement | Duo Lekri</title>
+<meta name="description" content="Book strykeduo til bryllup, dåp, begravelse, konsert, julebord eller arrangement. Velg anledning og få et uforpliktende tilbud fra Duo Lekri i Trondheim." />
+<link rel="canonical" href="https://strykeduett.no/book-oss.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Duo Lekri" />
+<meta property="og:locale" content="nb_NO" />
+<meta property="og:title" content="Book oss — Duo Lekri" />
+<meta property="og:description" content="Book strykeduo til bryllup, dåp, seremoni, konsert eller arrangement. Uforpliktende tilbud." />
+<meta property="og:url" content="https://strykeduett.no/book-oss.html" />
+<meta property="og:image" content="https://strykeduett.no/delingsbilde.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="stil.css" />
+<meta name="theme-color" content="#e9eef3" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+<link rel="apple-touch-icon" href="/favicon-180.png" />
+</head>
+<body data-side="book">
+
+<div id="site-nav"></div>
+
+<!-- ============ SIDETOPP ============ -->
+<section class="page-hero">
+  <div class="wrap reveal">
+    <h1>Book oss</h1>
+    <p class="kun-desktop">Fyll ut skjema under for å få et uforpliktende tilbud. Ta gjerne kontakt dersom du har noen spørsmål.</p>
+    <p class="kun-mobil">Fyll ut skjema under for å få et uforpliktende tilbud. Om ønskelig kan du også bruke e-post ved innsending.</p>
+    <div class="hero-epost">
+      <p>Ta gjerne kontakt ved spørsmål.</p>
+      <a class="js-epost" href="mailto:lekri@strykeduett.no">lekri@strykeduett.no</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VELG ANLEDNING ============ -->
+<section>
+  <div class="wrap">
+    <div class="anledning-layout">
+
+      <!-- Venstre: anledningsvalg -->
+      <div class="anledning-main">
+        <div class="section-head reveal" style="margin-bottom:32px;">
+          <h2>Til hvilken anledning ønsker du musikk?</h2>
+        </div>
+        <div class="occasion-picker reveal" id="occasionPicker">
+          <button type="button" class="occ-btn" data-occ="Bryllup">Bryllup</button>
+          <button type="button" class="occ-btn" data-occ="Dåp">Dåp</button>
+          <button type="button" class="occ-btn" data-occ="Event">Event</button>
+          <button type="button" class="occ-btn" data-occ="Konferanse">Konferanse</button>
+          <button type="button" class="occ-btn" data-occ="Konsert">Konsert</button>
+          <button type="button" class="occ-btn" data-occ="Begravelse / minnestund">Begravelse / minnestund</button>
+          <button type="button" class="occ-btn" data-occ="Julebord">Julebord</button>
+          <button type="button" class="occ-btn" data-occ="Arrangement">Arrangement</button>
+          <button type="button" class="occ-btn" data-occ="Annet">Annet</button>
+        </div>
+        <p class="anledning-note reveal">Klikk på en av boksene over, så blir du tatt til skjemaet — vi har laget et eget skjema for hver anledning.</p>
+      </div>
+
+      <!-- Høyre: ta kontakt direkte -->
+      <aside class="kontakt-side reveal">
+        <h3>Kontakt</h3>
+        <p>Vil du heller sende oss en e-post direkte?</p>
+        <a id="side-epost" class="js-epost" href="mailto:lekri@strykeduett.no">lekri@strykeduett.no</a>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKJEMA (vises når anledning er valgt) ============ -->
+<section class="alt" id="bookingSection" hidden>
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:36px;">
+      <p class="eyebrow">Forespørsel</p>
+      <h2 id="bookingHeading">Book oss</h2>
+      <p>Fyll ut det du kan, så tar vi kontakt med et tilbud. Alt er uforpliktende.</p>
+    </div>
+
+    <div class="booking-layout">
+      <!-- ====================================================================
+           BOOKINGSKJEMA
+           For at skjemaet skal sende e-post til deg, lag en gratis konto på
+           https://formspree.io , opprett et skjema, og lim inn din adresse
+           i action-feltet under (bytt ut "dinID").
+           ==================================================================== -->
+      <form class="reveal" action="https://formspree.io/f/xnjeyngq" method="POST" id="bookingForm" novalidate>
+        <div class="field">
+          <label for="anledning">Anledning</label>
+          <select id="anledning" name="Anledning">
+            <option value="" disabled selected>Velg anledning …</option>
+            <option>Bryllup</option>
+            <option>Dåp</option>
+            <option>Event</option>
+            <option>Konferanse</option>
+            <option>Konsert</option>
+            <option>Begravelse / minnestund</option>
+            <option>Julebord</option>
+            <option>Arrangement</option>
+            <option>Annet</option>
+          </select>
+        </div>
+
+        <!-- Resten av skjemaet bygges automatisk ut fra valgt anledning (styres i skjema.js) -->
+        <div id="formFields"></div>
+
+        <button type="submit" class="btn btn-solid">Send forespørsel</button>
+        <p id="formNote" style="font-size:.85rem;color:var(--blue-deep);display:none;"></p>
+      </form>
+
+      <!-- Info ved siden av skjemaet -->
+      <aside class="repertoire-info reveal">
+        <p class="eyebrow">Musikken</p>
+        <h3>Tilpasset anledningen</h3>
+        <p>Vi spiller et bredt repertoar og skreddersyr musikken til nettopp deres anledning.</p>
+        <p>Har dere ønsker om spesielle låter eller stemning, skriv det gjerne i spørsmåls-feltet</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEND FORESPØRSEL ============ -->
+<section style="padding-top:0;margin-top:-40px;">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <button type="button" class="btn btn-solid" id="openFormBtn">Send oss forespørsel</button>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="felles.js"></script>
+<script src="skjema.js"></script>
+</body>
+</html>
