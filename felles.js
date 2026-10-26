@@ -38,7 +38,7 @@
     '<header class="nav" id="nav">' +
       '<div class="wrap nav-inner">' +
         '<a href="index.html" class="brand">Duo Lekri</a>' +
-        '<a href="index.html" class="nav-logo" aria-label="Duo Lekri"><img src="monogram.png" alt="Duo Lekri" /></a>' +
+        '<a href="index.html" class="nav-logo" aria-label="Duo Lekri"><img src="Logo/monogram.png" alt="Duo Lekri" /></a>' +
         '<nav class="nav-links" id="menu">' +
           lenker +
         '</nav>' +
@@ -119,3 +119,18 @@
   }, { threshold: 0.14 });
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 })();
+
+/* ---------- Video: vis bilde med tekst, last inn YouTube først ved trykk ---------- */
+document.addEventListener('click', function(ev){
+  var knapp = ev.target.closest && ev.target.closest('.video-fasade');
+  if (!knapp) return;
+  var id = knapp.getAttribute('data-yt');
+  if (!/^[\w-]{6,20}$/.test(id || '')) return;
+  var f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+  f.title = 'Duo Lekri spiller ' + (knapp.getAttribute('data-tittel') || '');
+  f.setAttribute('allow', 'autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+  f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+  f.setAttribute('allowfullscreen', '');
+  knapp.replaceWith(f);
+});

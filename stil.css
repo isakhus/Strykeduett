@@ -460,3 +460,308 @@ body[data-side="hjem"] .cta-band{background:linear-gradient(135deg,#26343d,#1a25
   .foot-top{grid-template-columns:1fr;gap:36px;}
   .foot-people{gap:28px;}
 }
+
+
+/* =====================================================================
+   PRIS, VIDEO OG TILBAKEMELDINGER
+   ===================================================================== */
+
+/* --- Prismerke på forsiden --- */
+.pris-merke{
+  display:inline-flex;align-items:center;gap:10px;margin:0 0 26px;
+  padding:10px 22px 10px 16px;border-radius:40px;
+  border:1px solid rgba(192,122,78,.45);background:rgba(192,122,78,.07);
+  color:var(--ink);font-size:.95rem;transition:background .2s,border-color .2s,transform .2s;
+}
+.pris-merke:hover{background:rgba(192,122,78,.14);border-color:var(--accent);transform:translateY(-2px);}
+.pris-merke strong{font-weight:500;}
+.pris-merke-ikon{display:flex;color:var(--accent-deep);}
+.pris-merke-ikon svg{width:19px;height:19px;}
+.intro-about-link{margin-top:26px;}
+
+/* --- Videoer --- */
+.video-intro{color:var(--ink-soft);margin-bottom:16px;}
+.video-figur{margin-top:26px;}
+.video-figur.bred{max-width:620px;margin:52px auto 0;text-align:center;}
+.video-ramme{
+  position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;
+  background:var(--cream-deep);box-shadow:0 26px 52px -30px rgba(34,48,57,.45);
+}
+.video-ramme iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.video-figur figcaption{
+  font-size:.84rem;color:var(--ink-soft);margin-top:11px;font-style:italic;
+}
+
+/* --- Prisseksjon --- */
+.pris-seksjon{background:var(--cream);}
+.pris-seksjon .section-head{max-width:720px;}
+.pris-bilder{max-width:900px;}
+.pris-rad{display:flex;gap:16px;align-items:flex-start;}
+.pris-rad img{
+  min-width:0;width:100%;height:auto;border-radius:10px;
+  box-shadow:0 24px 48px -30px rgba(34,48,57,.45);
+}
+/* Bredde i forhold til bildeformatet → begge blir like høye, ingenting beskjæres */
+.pris-staaende{flex:2 1 0;}
+.pris-liggende{flex:4.5 1 0;}
+
+/* --- Juryens begrunnelse --- */
+.jury-blokk{margin-top:46px;}
+.jury-sitat{
+  background:var(--cream-deep);border-radius:16px;
+  border-left:3px solid var(--accent);padding:clamp(28px,3.5vw,42px) clamp(24px,3.5vw,46px);
+}
+.jury-sitat .eyebrow{margin-bottom:.9rem;}
+.jury-sitat > p:not(.eyebrow):not(.jury-navn){
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.08rem,1.7vw,1.3rem);
+  line-height:1.65;color:var(--ink);font-style:italic;
+}
+.jury-sitat .jury-navn{
+  margin-top:20px;font-family:'Jost',sans-serif;font-style:normal;font-weight:400;
+  font-size:.86rem;letter-spacing:.04em;color:var(--ink-soft);
+}
+
+/* --- Tilbakemeldinger --- */
+.sitater-seksjon{background:var(--cream);padding:76px 0;}
+.sitat-head{
+  font-size:clamp(1.7rem,3.2vw,2.4rem);text-align:center;margin-bottom:38px;
+}
+.sitat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.sitat{
+  background:var(--cream-deep);border-radius:14px;
+  padding:34px 30px 40px;position:relative;
+  transition:transform .3s,box-shadow .3s;
+}
+.sitat::after{
+  content:'\201D';position:absolute;bottom:-16px;right:22px;
+  font-family:'Cormorant Garamond',serif;font-size:3.4rem;line-height:1;
+  color:var(--blue);opacity:.5;
+}
+.sitat:hover{transform:translateY(-4px);box-shadow:0 24px 44px -30px rgba(34,48,57,.5);}
+.sitat::before{
+  content:'\201C';position:absolute;top:6px;left:20px;
+  font-family:'Cormorant Garamond',serif;font-size:3.4rem;line-height:1;
+  color:var(--blue);opacity:.5;
+}
+.sitat p{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:450;
+  font-size:1.15rem;line-height:1.58;color:var(--ink);position:relative;
+}
+
+@media(max-width:900px){
+  .sitat-grid{grid-template-columns:1fr;gap:16px;}
+  .sitater-seksjon{padding:58px 0;}
+  .pris-rad{flex-direction:column;gap:14px;}
+  .pris-rad img{flex:none;}
+  .video-figur.bred{margin-top:38px;}
+  .jury-blokk{margin-top:34px;}
+  .pris-merke{font-size:.88rem;padding:9px 18px 9px 14px;}
+}
+
+
+/* --- A: prisomtale i toppen, under «Strykeduo · Fiolin & cello» --- */
+.hero-pris{
+  display:inline-block;margin-top:40px;
+  font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;
+  color:var(--accent-deep);border-bottom:1px solid transparent;padding-bottom:2px;
+  transition:border-color .2s,color .2s;
+}
+.hero-pris:hover{border-color:var(--accent);color:var(--accent);}
+
+/* --- D (forhåndsvisning): stripe rett under menyen --- */
+.pris-stripe{
+  display:block;margin-top:74px;padding:10px 20px;text-align:center;
+  background:var(--ink);color:var(--cream);font-size:.84rem;letter-spacing:.05em;
+  transition:background .2s;
+}
+.pris-stripe:hover{background:#2e3f4a;}
+.pris-stripe span{opacity:.7;margin-left:4px;}
+
+@media(max-width:900px){
+  .hero-pris{margin-top:36px;font-size:.68rem;letter-spacing:.16em;}
+  .pris-stripe{font-size:.76rem;padding:9px 14px;}
+}
+
+/* Book oss: mindre luft mellom «Send oss forespørsel» og tilbakemeldingene */
+.sitater-seksjon.tett{padding-top:24px;}
+
+/* Forsiden: litt mindre luft mellom introteksten og tilbakemeldingene */
+.intro + .sitater-seksjon{padding-top:36px;}
+
+/* Om oss: egen videoseksjon rett under toppen, glir over i prisseksjonen */
+.video-seksjon{padding-bottom:0;}
+.video-seksjon .video-figur.bred{margin-top:0;}
+body[data-side="om"] .page-hero-text p{max-width:56ch;}
+
+/* Om oss: navn mellom tekst og logo, video i samme blå boks */
+.page-hero-inner .members{flex-shrink:0;}
+.page-hero-inner .member h3{font-size:1.45rem;}
+.page-hero-logo{height:clamp(110px,13vw,180px);}
+.page-hero .hero-video{margin-top:56px;}
+.page-hero .video-intro{max-width:none;font-size:1rem;}
+@media(max-width:900px){
+  .page-hero-inner{flex-direction:column;align-items:flex-start;gap:0;}
+  .page-hero-inner .page-hero-text{display:contents;}
+  .page-hero-inner .members{order:1;margin:6px 0 26px;}   /* navnene over teksten, som før på mobil */
+  .page-hero-inner .page-hero-text p{order:2;}
+  .page-hero .hero-video{margin-top:36px;}
+}
+
+/* ===== Om oss, toppboks (A): tekst + navn til venstre, video til høyre, logo ved tittelen ===== */
+.om-topp{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.om-tittel{display:flex;align-items:center;gap:22px;margin-bottom:1.2rem;}
+.om-tittel h1{margin-bottom:0;}
+.om-logo{height:clamp(70px,7vw,96px);width:auto;opacity:.92;}
+.om-hero .om-tekst > p:not(.eyebrow){max-width:58ch;}
+.om-navn{display:flex;flex-wrap:wrap;gap:22px 36px;margin-top:26px;}
+.om-navn .member h3{font-size:1.4rem;}
+.om-video{margin:0;}
+.om-video .video-intro{max-width:none;font-size:.98rem;margin-bottom:12px;}
+@media(max-width:900px){
+  .om-topp{grid-template-columns:1fr;gap:36px;}
+  .om-tekst{display:flex;flex-direction:column;}
+  .om-navn{order:1;margin:0 0 22px;}                 /* navnene over teksten på mobil */
+  .om-hero .om-tekst > p:not(.eyebrow){order:2;}
+  .om-logo{height:60px;}
+  .om-tittel{gap:16px;}
+}
+
+/* ===== Video med tonet forside (lastes først ved trykk) ===== */
+.video-fasade{
+  position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;
+  background:#1a252c;display:block;font:inherit;text-align:left;
+}
+.video-fasade img{width:100%;height:100%;object-fit:cover;display:block;}
+.fasade-tekst{
+  position:absolute;inset:0;display:flex;align-items:center;gap:18px;
+  padding:0 8% 0 7%;
+  background:linear-gradient(90deg,rgba(213,225,234,.96) 0%,rgba(213,225,234,.9) 38%,rgba(213,225,234,.35) 68%,rgba(213,225,234,0) 88%);
+  transition:background .35s;
+}
+.video-fasade:hover .fasade-tekst{
+  background:linear-gradient(90deg,rgba(213,225,234,.9) 0%,rgba(213,225,234,.75) 34%,rgba(213,225,234,.15) 62%,rgba(213,225,234,0) 80%);
+}
+.fasade-play{
+  flex-shrink:0;width:54px;height:54px;border-radius:50%;background:var(--ink);position:relative;
+  transition:transform .25s,background .25s;
+}
+.fasade-play::after{
+  content:'';position:absolute;left:21px;top:17px;
+  border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent var(--cream);
+}
+.video-fasade:hover .fasade-play{transform:scale(1.07);background:var(--accent-deep);}
+.fasade-ord{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,1.6vw,1.3rem);
+  line-height:1.35;color:var(--ink);max-width:16em;
+}
+.fasade-ord strong{display:block;font-family:'Jost',sans-serif;font-weight:400;font-size:.72rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);margin-top:6px;}
+.video-fasade:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* Toppvideoen litt lenger til høyre, med mer luft mot teksten */
+.om-topp{gap:72px;}
+.om-video{justify-self:end;width:100%;max-width:500px;}
+@media(max-width:900px){
+  .om-video{justify-self:stretch;max-width:none;}
+  .fasade-play{width:44px;height:44px;}
+  .fasade-play::after{left:17px;top:13px;border-width:9px 0 9px 14px;}
+}
+
+/* ===== Forsiden (C): diskret prislinje over overskriften ===== */
+.pris-linje{
+  display:inline-block;margin-bottom:16px;
+  font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;
+  color:var(--accent-deep);border-bottom:1px solid transparent;padding-bottom:2px;
+  transition:border-color .2s,color .2s;
+}
+.pris-linje:hover{border-color:var(--accent);color:var(--accent);}
+@media(max-width:900px){ .pris-linje{font-size:.68rem;letter-spacing:.16em;} }
+
+/* ===== Video: fade over hele bildet, toppvideoen lenger til høyre ===== */
+.fasade-tekst,
+.video-fasade:hover .fasade-tekst{background:rgba(213,225,234,.86);}
+.video-fasade:hover .fasade-tekst{background:rgba(213,225,234,.74);}
+.fasade-ord{max-width:none;}
+.om-video{max-width:430px;}
+
+/* Toppvideoen: skarpt monogram oppå, resten tonet ut */
+.video-fasade.med-logo .fasade-tekst{background:rgba(226,233,239,.93);}
+.video-fasade.med-logo:hover .fasade-tekst{background:rgba(226,233,239,.86);}
+.video-fasade .fasade-logo{height:64%;width:auto;object-fit:contain;margin-left:auto;flex-shrink:0;opacity:.95;}
+.video-fasade.med-logo .fasade-ord{max-width:11em;}
+
+/* ===== Forsiden (B): «prisvinnende» som lenke i teksten ===== */
+.pris-lenke{
+  color:var(--accent-deep);border-bottom:1px solid rgba(192,122,78,.55);padding-bottom:1px;
+  transition:color .2s,border-color .2s;
+}
+.pris-lenke:hover{color:var(--accent);border-color:var(--accent);}
+
+/* Toppvideoen: helt blå flate, mer luft mellom tekst og logo */
+.video-fasade.med-logo{background:#e2e9ef;}
+.video-fasade.med-logo .fasade-tekst{background:#e2e9ef;padding:0 8% 0 7%;gap:20px;}
+.video-fasade.med-logo:hover .fasade-tekst{background:#e8eef3;}
+.video-fasade.med-logo .fasade-ord{max-width:9.5em;}
+.video-fasade.med-logo .fasade-logo{height:58%;padding-left:36px;}
+
+/* Toppvideoen: teksten på to linjer */
+.video-fasade.med-logo .fasade-tekst{padding:0 6% 0 6%;gap:18px;}
+.video-fasade.med-logo .fasade-ord{max-width:14em;font-size:clamp(1rem,1.35vw,1.18rem);}
+.video-fasade.med-logo .fasade-logo{height:50%;padding-left:20px;}
+
+/* Prisseksjonen: tekst til venstre, det stående bildet til høyre */
+.pris-topp{display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:center;}
+.pris-topp .section-head{margin-bottom:0;}
+.pris-bilde{margin:0;}
+.pris-bilde img{
+  width:100%;height:auto;border-radius:10px;display:block;
+  box-shadow:0 24px 48px -30px rgba(34,48,57,.45);
+}
+@media(max-width:900px){
+  .pris-topp{grid-template-columns:1fr;gap:28px;}
+  .pris-bilde{max-width:380px;}
+}
+
+/* Prisseksjonen: venstre spalte med tekst + jury og/eller video, bildet til høyre */
+.pris-venstre .section-head{margin-bottom:0;}
+.pris-venstre .jury-blokk{margin-top:30px;}
+.pris-venstre .jury-sitat{padding:clamp(22px,2.6vw,32px) clamp(20px,2.6vw,34px);}
+.pris-venstre .pris-video{margin-top:30px;}
+.pris-topp.alt-venstre{align-items:start;}
+.pris-seksjon > .wrap > .jury-blokk{margin-top:46px;}
+
+/* Maconchy-videoen (B): litt mindre, tett blå flate med monogram og «Duo Lekri» */
+.pris-venstre .pris-video{max-width:520px;}
+.video-fasade.med-logo .fasade-logoer{
+  margin-left:auto;padding-left:20px;height:74%;flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+}
+.video-fasade.med-logo .fasade-logoer .fasade-logo{height:58%;width:auto;padding-left:0;margin:0;object-fit:contain;}
+.video-fasade.med-logo .fasade-logoer .fasade-skrift{width:104px;height:auto;object-fit:contain;}
+@media(max-width:900px){ .video-fasade.med-logo .fasade-logoer .fasade-skrift{width:84px;} }
+
+.nobr{white-space:nowrap;}
+/* Gullskrift på «Utmerkelse» */
+.eyebrow.gull{
+  color:#a08355;font-weight:500;
+  background:linear-gradient(90deg,#97794a 0%,#b39a6b 50%,#9c7e4f 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  display:inline-block;
+}
+
+/* «prisvinnende» på forsiden: samme dempede gull som «Utmerkelse» */
+.pris-lenke{
+  font-weight:500;color:#a08355;
+  background:linear-gradient(90deg,#97794a 0%,#b39a6b 50%,#9c7e4f 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  border-bottom:1px solid rgba(160,131,85,.45);padding-bottom:1px;
+  transition:border-color .2s,opacity .2s;
+}
+.pris-lenke:hover{border-color:#a08355;opacity:.85;}
+
+/* «prisvinnende»: mer subtilt – vanlig vekt, svak gulltone, nesten usynlig strek */
+.pris-lenke{
+  font-weight:inherit;background:none;-webkit-text-fill-color:currentColor;
+  color:#9a8158;border-bottom:1px solid rgba(154,129,88,.28);
+}
+.pris-lenke:hover{opacity:1;color:#86704a;border-color:rgba(154,129,88,.6);}
