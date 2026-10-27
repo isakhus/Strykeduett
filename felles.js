@@ -17,6 +17,8 @@
   // ---------- KONTAKTINFO (vises i footeren) — REDIGER HER ----------
   var kontakt = {
     epost: 'lekri@strykeduett.no',           // felles e-post
+    instagram: 'https://www.instagram.com/duolekri/',   // Instagram-konto
+    instagramNavn: '@duolekri',
     musikere: [
       { rolle: 'Fiolin', navn: 'Kristin', tlf: '406 42 234', mail: 'kristinengaas@gmail.com' },
       { rolle: 'Cello',  navn: 'Lea',     tlf: '979 10 137', mail: 'lea.hustad@icloud.com' }
@@ -24,6 +26,12 @@
   };
 
   var aktiv = document.body.getAttribute('data-side') || '';
+
+  // Instagram-ikon (enkel strek, arver tekstfargen)
+  var instaIkon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>';
+  var instaLenke = function(cls, tekst){
+    return '<a class="' + cls + '" href="' + kontakt.instagram + '" target="_blank" rel="noopener noreferrer" aria-label="Duo Lekri på Instagram">' + instaIkon + tekst + '</a>';
+  };
 
   // ---------- Bygg navigasjon ----------
   var lenker = sider.map(function(s){
@@ -40,8 +48,10 @@
         '<a href="index.html" class="brand">Duo Lekri</a>' +
         '<a href="index.html" class="nav-logo" aria-label="Duo Lekri"><img src="Logo/monogram.png" alt="Duo Lekri" /></a>' +
         '<nav class="nav-links" id="menu">' +
+          instaLenke('nav-insta', '<span class="nav-insta-tekst">Instagram</span>') +
           lenker +
         '</nav>' +
+        instaLenke('nav-insta-mobil', '') +
         '<button class="burger" id="burger" aria-label="Meny"><span></span><span></span><span></span></button>' +
       '</div>' +
     '</header>';
@@ -70,7 +80,10 @@
           '</div>' +
           '<div class="foot-contact">' +
             '<h4>Ta kontakt med oss</h4>' +
-            '<p class="foot-mail"><a href="mailto:' + kontakt.epost + '">' + kontakt.epost + '</a></p>' +
+            '<p class="foot-mail foot-mail-rad"><a class="foot-epost" href="mailto:' + kontakt.epost + '">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>' +
+              '<span>' + kontakt.epost + '</span></a>' +
+              '<span class="foot-insta">' + instaLenke('', '<span>' + kontakt.instagramNavn + '</span>') + '</span></p>' +
             '<div class="foot-people">' + musikerHtml + '</div>' +
           '</div>' +
         '</div>' +
@@ -93,6 +106,12 @@
   epostLenker.forEach(function(a){
     a.href = 'mailto:' + kontakt.epost;
     a.textContent = kontakt.epost;
+  });
+
+  // ---------- Instagram-lenker andre steder (Book oss) ----------
+  document.querySelectorAll('.js-instagram').forEach(function(a){
+    a.href = kontakt.instagram; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.innerHTML = instaIkon + '<span>' + kontakt.instagramNavn + '</span>';
   });
 
   // ---------- Navbar-skygge ved scroll ----------
@@ -133,4 +152,32 @@ document.addEventListener('click', function(ev){
   f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
   f.setAttribute('allowfullscreen', '');
   knapp.replaceWith(f);
+});
+
+/* ---------- Tilbakemeldinger: prikker under kortene når man blar bortover (mobil) ---------- */
+document.querySelectorAll('.sitat-grid').forEach(function(grid){
+  var kort = grid.querySelectorAll('.sitat');
+  if (kort.length < 2) return;
+  var prikker = document.createElement('div');
+  prikker.className = 'sitat-prikker';
+  kort.forEach(function(k, i){
+    var p = document.createElement('button');
+    p.type = 'button';
+    p.setAttribute('aria-label', 'Vis tilbakemelding ' + (i + 1));
+    p.addEventListener('click', function(){
+      grid.scrollTo({ left: k.offsetLeft - grid.offsetLeft - (grid.clientWidth - k.clientWidth) / 2, behavior: 'smooth' });
+    });
+    prikker.appendChild(p);
+  });
+  grid.parentNode.insertBefore(prikker, grid.nextSibling);
+  function oppdater(){
+    var midt = grid.scrollLeft + grid.clientWidth / 2, best = 0, avst = Infinity;
+    kort.forEach(function(k, i){
+      var d = Math.abs(k.offsetLeft - grid.offsetLeft + k.clientWidth / 2 - midt);
+      if (d < avst){ avst = d; best = i; }
+    });
+    prikker.querySelectorAll('button').forEach(function(b, i){ b.classList.toggle('aktiv', i === best); });
+  }
+  grid.addEventListener('scroll', function(){ window.requestAnimationFrame(oppdater); }, { passive: true });
+  oppdater();
 });
